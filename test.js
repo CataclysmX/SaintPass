@@ -5,7 +5,7 @@ var figlet = require('figlet');
 i = 0;
 function execute(){
   //code to execute
-  request('https://wrapapi.com/use/CataclysmX/test/Test2/0.0.1?wrapAPIKey=PGjrMdMfucZIFtxuus7ogmCpxdWHBXmR', function (error, response, body) {
+  request('https://wrapapi.com/use/CataclysmX/check/test/0.0.1?wrapAPIKey=PGjrMdMfucZIFtxuus7ogmCpxdWHBXmR', function (error, response, body) {
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
