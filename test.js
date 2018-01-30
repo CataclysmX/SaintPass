@@ -1,113 +1,79 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var request = require('request');
-
-
-
-let prefix = ";";
-
+var figlet = require('figlet');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-  var sender = msg.author;
-  const args = msg.content.slice(prefix.length).trim().split(/\"(.*?)\"/g);
-  const command = args.shift().toLowerCase();
-  var d = new Date();
-  function Logs(opt)
-  {
-    console.log('[ ' + msg.author.username + ' ] : ' + msg.content + ' '+opt+'                               ' + d.toISOString());
-  }
+i = 0;
+function execute(){
+  //code to execute
+  request('https://wrapapi.com/use/CataclysmX/check/test/0.0.1?wrapAPIKey=PGjrMdMfucZIFtxuus7ogmCpxdWHBXmR', function (error, response, body) {
+    //console.log('error:', error); // Print the error if one occurred
+    //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-  if (sender.id === '404312431771516938') {
-    //msg.delete();
-    return;
-  }
+    var str = body;
+    var regex = /":{\s*(.*?)\s*}/g;
 
+    test = regex.exec(str);
+    test2 = '{' + test[1] + '}';
+    //alert(test2);
 
-
-  if (msg.content.startsWith(prefix + "ping")) {
-    Logs();
-    msg.reply('Pong!');
-  }
-
-  if (msg.content.startsWith(prefix + "help")) {
-    msg.delete();
-    Logs();
-    msg.reply('sorry but no help currently :confused:');
-  }
-
-  if (msg.content.startsWith(prefix + "kebab")) {
-    msg.delete();
-    Logs();
-    msg.reply(':stuffed_flatbread: : et voila :smiley:');
-  }
-
-  if (msg.content.startsWith(prefix + "okjs")) {
-    msg.delete();
-    Logs();
-    msg.channel.send("Ho non encore une querelle de couple... ");
-  }
-
-  if (msg.content.startsWith(prefix + "say")) {
-    msg.delete();
-    Logs();
-    msg.channel.send(args[0]);
-  }
+    //document.body.innerHTML = '<pre>' + test2 + '</pre>';
 
 
+    myJSON = test2;
+    var myObj = JSON.parse(myJSON);
+    //document.getElementById("demo").innerHTML = myObj.Title[0];
 
-  /*if (msg.content.includes('LETTUCE')) {
-    msg.delete();
-    msg.author.send("don't use this word...")
-  }*/
+    body = myObj.Title[0];
+    /*var regex = /{"T\s*(.*?)\s*}/g;
+    body123 = regex.exec(body);*/
+    console.log("\n"+body);
+    console.log("\n");
+    if (typeof body2 !== 'undefined')
+    {
+      //if Defined :
 
-
-  if (msg.content.startsWith(prefix + "correct")) {
-
-    var dataString = args[0];
-
-    var headers = {
-        'Username': 'OnlineSpellerWS',
-        'Host': 'orthographe.reverso.net',
-        'Accept': 'application/json, text/javascript, /; q=0.01',
-        'Accept-Encoding': 'gzip, deflate',
-        'Cache-Control': 'no-cache',
-        'Origin': 'http://www.reverso.net/',
-        'Created': '01/01/0001 00:00:00'
-    };
-
-
-
-    var options = {
-        url: 'http://orthographe.reverso.net/RISpellerWS/RestSpeller.svc/v1/CheckSpellingAsXml/language=fra?outputFormat=json&doReplacements=true&interfLang=fr&dictionary=both&spellOrigin=interactive&includeSpellCheckUnits=true&includeExtraInfo=true&isStandaloneSpeller=true',
-        method: 'POST',
-        headers: headers,
-        body: dataString
-    };
-
-    function callback(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var t = JSON.parse(body);
-            var body2 = t['AutoCorrectedText'];
-            //console.log(body);
-            msg.delete();
-            Logs(args[0]);
-            msg.reply(body2);
-            //msg.reply(args[0]);
-        }
+      if(body2 == body)
+      {
+        console.log('No New : ' + i++ );
+        console.log(body2 + "  ==  " +body);
+      }
+      else
+      {
+        console.log('New ! ');
+            request('https://smsapi.free-mobile.fr/sendmsg?user=30308139&pass=2gSF3Y1T26XwO4&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A'+ encodeURIComponent(body2) +'%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
+              //console.log('error:', error); // Print the error if one occurred
+              //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+              console.log(bodyRep);});
+        i = 0;
+        body2 = body;
+      }
 
     }
-    request(options, callback);
+    else
+    {
+      body2 = body;
+      //body2 = "Paris"
+      //console.log("Not Defined");
+      console.log(figlet.textSync('Starting ...', {
+          font: 'Bloody',
+          horizontalLayout: 'default',
+          verticalLayout: 'default'
+      }));
+      console.log("\n"+ body2 + "\n ");
+    }
 
 
-  }
+  });
+  //process.stdout.write('\033c');
+}
 
+//setInterval(execute,2000);
+setInterval(execute,60000);
 
-
-
-});
 client.login('NDA0MzEyNDMxNzcxNTE2OTM4.DUUA2A.WkhEuO_5S_3hihh-fJlf1z3ZQRk');
 client.login(process.env.BOT_TOKEN);
