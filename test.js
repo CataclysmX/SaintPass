@@ -1,11 +1,6 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
 var request = require('request');
 var figlet = require('figlet');
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
 
 i = 0;
 function execute(){
@@ -74,6 +69,3 @@ function execute(){
 
 //setInterval(execute,2000);
 setInterval(execute,60000);
-
-client.login('NDA0MzEyNDMxNzcxNTE2OTM4.DUUA2A.WkhEuO_5S_3hihh-fJlf1z3ZQRk');
-client.login(process.env.BOT_TOKEN);
