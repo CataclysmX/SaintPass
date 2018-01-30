@@ -8,7 +8,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.3.0",
     "JSON": "^1.0.0",
     "figlet": "^1.2.0",
     "request": "^2.83.0"
