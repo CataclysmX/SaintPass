@@ -24,21 +24,21 @@ function execute(){
     //document.getElementById("demo").innerHTML = myObj.Title[0];
 
     body = myObj.Title;
-    var bodyOri = "";
+
     var Num;
-    for (Num in myObj.Title[Num])
+    for (Num in body)
     {
-      bodyOri += myObj.Title[Num] +"\n";
+      body += myObj.Title[Num] +"\n";
     }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
-    //console.log("\n"+body);
+    console.log("\n"+body);
     console.log("\n");
     if (typeof body2 !== 'undefined')
     {
         //if Defined :
 
-      if(body2 == bodyOri)
+      if(body2 == body)
       {
           console.log('No New : ' + i++ );
           //console.log(body2 + "  ==  " +body);
@@ -48,19 +48,17 @@ function execute(){
       {
           console.log('New ! ');
 
-              request('https://smsapi.free-mobile.fr/sendmsg?user=30308139&pass=2gSF3Y1T26XwO4&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
+              request('https://smsapi.free-mobile.fr/sendmsg?user=30308139&pass=2gSF3Y1T26XwO4&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A'+ encodeURIComponent(body2) +'%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
                 //console.log('error:', error); // Print the error if one occurred
                 //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-                /*console.log(bodyRep);*/});
+                console.log(bodyRep);});
           i = 0;
-          body2 = bodyOri;
-          bodyOri = "";
-          console.log(body2);
+          body2 = body;
       }
     }
     else
     {
-      body2 = bodyOri;
+      body2 = body;
       //body2 = "Paris"
       //console.log("Not Defined");
       console.log(figlet.textSync('Starting ...', {
@@ -76,6 +74,5 @@ function execute(){
   //process.stdout.write('\033c');
 }
 
-//setInterval(execute,2000);
-setInterval(execute,60000);
-
+setInterval(execute,2000);
+//setInterval(execute,60000);
