@@ -23,12 +23,12 @@ function execute(){
     var myObj = JSON.parse(myJSON);
     //document.getElementById("demo").innerHTML = myObj.Title[0];
 
-    //body = myObj.Title;
+    body = myObj.Title;
 
     var Num;
     for (Num in myObj.Title[Num])
     {
-      body += myObj.Title[Num] +"\n";
+      bodyOri += myObj.Title[Num] +"\n";
     }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
@@ -38,7 +38,7 @@ function execute(){
     {
         //if Defined :
 
-      if(body2 == body)
+      if(body2 == bodyOri)
       {
           console.log('No New : ' + i++ );
           //console.log(body2 + "  ==  " +body);
@@ -53,13 +53,13 @@ function execute(){
                 //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
                 /*console.log(bodyRep);*/});
           i = 0;
-          body2 = body;
+          body2 = bodyOri;
           console.log(body2);
       }
     }
     else
     {
-      body2 = body;
+      body2 = bodyOri;
       //body2 = "Paris"
       //console.log("Not Defined");
       console.log(figlet.textSync('Starting ...', {
