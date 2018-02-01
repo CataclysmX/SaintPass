@@ -51,7 +51,7 @@ function execute(){
               request('https://smsapi.free-mobile.fr/sendmsg?user=30308139&pass=2gSF3Y1T26XwO4&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
                 //console.log('error:', error); // Print the error if one occurred
                 //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-                console.log(bodyRep);});
+                /*console.log(bodyRep);*/});
           i = 0;
           body2 = body;
           console.log(body2);
