@@ -74,5 +74,5 @@ function execute(){
   //process.stdout.write('\033c');
 }
 
-setInterval(execute,2000);
-//setInterval(execute,60000);
+//setInterval(execute,2000);
+setInterval(execute,60000);
