@@ -23,31 +23,38 @@ function execute(){
     var myObj = JSON.parse(myJSON);
     //document.getElementById("demo").innerHTML = myObj.Title[0];
 
-    body = myObj.Title[0];
+    body = myObj.Title;
+
+    var Num;
+    for (Num in body)
+    {
+      body += myObj.Title[Num] +"\n";
+    }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
     console.log("\n"+body);
     console.log("\n");
     if (typeof body2 !== 'undefined')
     {
-      //if Defined :
+        //if Defined :
 
       if(body2 == body)
       {
-        console.log('No New : ' + i++ );
-        console.log(body2 + "  ==  " +body);
+          console.log('No New : ' + i++ );
+          //console.log(body2 + "  ==  " +body);
+          //console.log("\n\n\n\n" + body2);
       }
       else
       {
-        console.log('New ! ');
-            request('https://smsapi.free-mobile.fr/sendmsg?user='+ process.env.ID +'&pass='+ process.env.Pass +'&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A'+ encodeURIComponent(body) +'%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
-              //console.log('error:', error); // Print the error if one occurred
-              //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-              console.log(bodyRep);});
-        i = 0;
-        body2 = body;
-      }
+          console.log('New ! ');
 
+              request('https://smsapi.free-mobile.fr/sendmsg?user=30308139&pass=2gSF3Y1T26XwO4&msg=Vite+%21+%0D%0AWallah+y+a+du+Nouveau+%21%0D%0A%0A%0A%0Ahttps%3A%2F%2Fwww.saintepass.fr%2Foffres-a-saisir%3Fpage%3D1', function (error, response, bodyRep) {
+                //console.log('error:', error); // Print the error if one occurred
+                //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                console.log(bodyRep);});
+          i = 0;
+          body2 = body;
+      }
     }
     else
     {
@@ -69,3 +76,4 @@ function execute(){
 
 //setInterval(execute,2000);
 setInterval(execute,60000);
+
