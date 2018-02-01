@@ -24,11 +24,11 @@ function execute(){
     //document.getElementById("demo").innerHTML = myObj.Title[0];
 
     body = myObj.Title;
-
-    var Num, bodyOri;
+    var bodyOri = "";
+    var Num;
     for (Num in myObj.Title[Num])
     {
-      bodyOri += myObj.Title[Num] +"\n";
+      var bodyOri += myObj.Title[Num] +"\n";
     }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
