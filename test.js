@@ -32,7 +32,7 @@ function execute(){
     }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
-    console.log("\n"+body);
+    //console.log("\n"+body);
     console.log("\n");
     if (typeof body2 !== 'undefined')
     {
