@@ -28,7 +28,7 @@ function execute(){
     var Num;
     for (Num in myObj.Title[Num])
     {
-      var bodyOri += myObj.Title[Num] +"\n";
+      bodyOri += myObj.Title[Num] +"\n";
     }
     /*var regex = /{"T\s*(.*?)\s*}/g;
     body123 = regex.exec(body);*/
