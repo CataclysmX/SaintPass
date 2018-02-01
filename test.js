@@ -54,6 +54,7 @@ function execute(){
                 console.log(bodyRep);});
           i = 0;
           body2 = body;
+          console.log(body2);
       }
     }
     else
