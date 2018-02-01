@@ -23,10 +23,10 @@ function execute(){
     var myObj = JSON.parse(myJSON);
     //document.getElementById("demo").innerHTML = myObj.Title[0];
 
-    body = myObj.Title;
+    //body = myObj.Title;
 
     var Num;
-    for (Num in body)
+    for (Num in myObj.Title[Num])
     {
       body += myObj.Title[Num] +"\n";
     }
