@@ -25,7 +25,7 @@ function execute(){
 
     body = myObj.Title;
 
-    var Num;
+    var Num, bodyOri;
     for (Num in myObj.Title[Num])
     {
       bodyOri += myObj.Title[Num] +"\n";
@@ -54,6 +54,7 @@ function execute(){
                 /*console.log(bodyRep);*/});
           i = 0;
           body2 = bodyOri;
+          bodyOri = "";
           console.log(body2);
       }
     }
