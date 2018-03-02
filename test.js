@@ -75,4 +75,4 @@ function execute(){
 }
 
 //setInterval(execute,2000);
-setInterval(execute,60000);
+setInterval(execute,600000);
